@@ -60,4 +60,3 @@ Develop front end components on simple encapsulated environment: `yarn docz:dev`
 Develop frontend app: `yarn start:front` localhost:8080
 
 Develop backend app: `yarn start:back` localhost:4000
-# hoxhunt-assignment

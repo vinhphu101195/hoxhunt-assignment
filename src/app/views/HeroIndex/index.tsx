@@ -44,9 +44,9 @@ interface IHero {
 
 const HeroCardContainer = styled.div`
 	display: flex;
+	justify-content: space-between;
 	padding: 50px;
 	align-self: center;
-	max-width: 1150px;
 	@media (min-width: 1400px) {
 		margin-left: auto;
 		margin-right: auto;
@@ -91,10 +91,9 @@ export const HeroIndex: React.FC<IHeroIndexProps> = () => {
 
 			{/** Improve this section. Data provided is defined on top in GraphQL query. You can decide what you use and what you dont't.*/}
 			<HeroCardContainer>
-	{/* 			{heroes.map(hero => (
+				{heroes.map(hero => (
 					<HeroCard key={hero.name} {...hero} />
-				))} */}
-				<h1>hello</h1>
+				))}
 			</HeroCardContainer>
 
 			<Footer />
