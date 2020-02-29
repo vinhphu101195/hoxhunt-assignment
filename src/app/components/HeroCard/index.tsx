@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import {HeroPopup} from "./HeroPopup";
 
 interface IHeroCardProps {
   name: string;
@@ -77,7 +78,7 @@ const HeroImageContainer = styled.span`
 `;
 
 const HeroImage = styled.img`
-  width: 320px;
+  width: 300px;
   height: 350px;
   transform: scale(1.05);
   transition: transform 0.5s, opacity 0.5s;
@@ -96,6 +97,8 @@ export const HeroCard: React.FC<IHeroCardProps> = (props: IHeroCardProps) => {
       <HeroName>
         <HeroNameText>{props.name}</HeroNameText>
       </HeroName>
+
+      <HeroPopup></HeroPopup>
     </HeroContainer>
   );
 };
