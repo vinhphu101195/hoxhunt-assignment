@@ -7,14 +7,6 @@ import {HeroPopup} from "./HeroPopup";
 interface IHeroCardProps {
   name: string;
   imgUrl: string;
-  // extend this
-  /*   strength: number
-  intelligence: number
-  stamina: number
-  healthpoints: number
-  mana: number
-  agility: number
-  speed: number */
 }
 
 const HeroContainer = styled.div`
@@ -88,7 +80,7 @@ const HeroImage = styled.img`
   }
 `;
 
-export const HeroCard: React.FC<IHeroCardProps> = (props: IHeroCardProps) => {
+export const HeroCard: React.FC<IHeroCardProps> = (props) => {
   return (
     <HeroContainer>
       <HeroImageContainer>
@@ -98,7 +90,7 @@ export const HeroCard: React.FC<IHeroCardProps> = (props: IHeroCardProps) => {
         <HeroNameText>{props.name}</HeroNameText>
       </HeroName>
 
-      <HeroPopup></HeroPopup>
+      <HeroPopup {...props}></HeroPopup>
     </HeroContainer>
   );
 };

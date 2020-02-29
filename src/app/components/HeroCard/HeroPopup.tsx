@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { SkillsBarContainer } from "./SkillBar";
 
 interface Props {}
 
@@ -42,8 +43,6 @@ const PopupContent = styled.div`
   padding: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-content: center;
   @media only screen and (max-width: $bp-small) {
     justify-content: center;
   }
@@ -52,20 +51,60 @@ const PopupContent = styled.div`
 const PopupClose = styled.div`
   color: black;
   position: absolute;
-  top: 3rem;
-  right: 10.5rem;
+  top: 2.5rem;
+  right: 10rem;
   font-size: 3rem;
-  text-decoration: none;
-  display: inline-block;
   transition: all 0.2s;
   line-height: 1;
   z-index: 2;
+  font-weight: bolder;
+  transition: all 0.3s ;
+
+  &:hover{
+    color:#B22222	
+    transform: scale(1.3);
+  }
 `;
+
+const PopupContentUpper = styled.div`
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const PopupContentUpperContainer = styled.div`
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+`;
+const PopupContentLower = styled.div``;
 
 export const HeroPopup: React.FC<Props> = () => {
   return (
     <PopupContainer>
-      <PopupContent>Hello</PopupContent>
+      <PopupContent>
+        <PopupContentUpper>
+          <PopupContentUpperContainer>
+            <SkillsBarContainer title="Strength"></SkillsBarContainer>
+            <SkillsBarContainer title="Intelligence"></SkillsBarContainer>
+            <SkillsBarContainer title="Stamina"></SkillsBarContainer>
+            <SkillsBarContainer title="Healthpoints"></SkillsBarContainer>
+          </PopupContentUpperContainer>
+
+          <PopupContentUpperContainer>
+            <div>hello1</div>
+          </PopupContentUpperContainer>
+
+          <PopupContentUpperContainer>
+            <div>hello3</div>{" "}
+          </PopupContentUpperContainer>
+        </PopupContentUpper>
+        <PopupContentLower>hello2</PopupContentLower>
+      </PopupContent>
       <PopupClose>&times;</PopupClose>
     </PopupContainer>
   );
