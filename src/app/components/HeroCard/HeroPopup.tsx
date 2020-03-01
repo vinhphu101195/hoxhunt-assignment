@@ -1,8 +1,18 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { SkillsBarContainer } from "./SkillBar";
 
-interface Props {}
+interface Props {
+  name: string;
+  imgUrl: string;
+  strength: number;
+  intelligence: number;
+  stamina: number;
+  healthpoints: number;
+  mana: number;
+  agility: number;
+  speed: number;
+}
 
 const PopupContainer = styled.div`
   height: 100vh;
@@ -71,37 +81,77 @@ const PopupContentUpper = styled.div`
   height: 65%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 `;
 
-const PopupContentUpperContainer = styled.div`
-  width: 33%;
+const PopupContentUpperSkillContainer = styled.div`
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 3rem;
 `;
+const PopupContentUpperAvatarContainer = styled.div`
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+`;
+
+const PopupHeroImage = styled.img`
+  width: 100%;
+  height: 50%;
+`;
 const PopupContentLower = styled.div``;
 
-export const HeroPopup: React.FC<Props> = () => {
+export const HeroPopup: React.FC<Props> = props => {
+  console.log(props);
+
   return (
     <PopupContainer>
       <PopupContent>
         <PopupContentUpper>
-          <PopupContentUpperContainer>
-            <SkillsBarContainer title="Strength"></SkillsBarContainer>
-            <SkillsBarContainer title="Intelligence"></SkillsBarContainer>
-            <SkillsBarContainer title="Stamina"></SkillsBarContainer>
-            <SkillsBarContainer title="Healthpoints"></SkillsBarContainer>
-          </PopupContentUpperContainer>
+          <PopupContentUpperSkillContainer>
+            <SkillsBarContainer
+              title="Strength"
+              index={props.strength}
+            ></SkillsBarContainer>
+            <SkillsBarContainer
+              title="Intelligence"
+              index={props.intelligence}
+            ></SkillsBarContainer>
+            <SkillsBarContainer
+              title="Stamina"
+              index={props.stamina}
+            ></SkillsBarContainer>
+            <SkillsBarContainer
+              title="Healthpoints"
+              index={props.healthpoints / 10}
+            ></SkillsBarContainer>
+          </PopupContentUpperSkillContainer>
 
-          <PopupContentUpperContainer>
-            <div>hello1</div>
-          </PopupContentUpperContainer>
+          <PopupContentUpperAvatarContainer>
+            <PopupHeroImage src={props.imgUrl} alt="hero"></PopupHeroImage>
+          </PopupContentUpperAvatarContainer>
 
-          <PopupContentUpperContainer>
-            <div>hello3</div>{" "}
-          </PopupContentUpperContainer>
+          <PopupContentUpperSkillContainer>
+            <SkillsBarContainer
+              title="Mana"
+              index={props.mana / 200}
+            ></SkillsBarContainer>
+            <SkillsBarContainer
+              title="Agility"
+              index={props.agility}
+            ></SkillsBarContainer>
+            <SkillsBarContainer
+              title="Speed"
+              index={props.speed}
+            ></SkillsBarContainer>
+            <SkillsBarContainer
+              title="Difficult"
+              index={20}
+            ></SkillsBarContainer>
+          </PopupContentUpperSkillContainer>
         </PopupContentUpper>
         <PopupContentLower>hello2</PopupContentLower>
       </PopupContent>

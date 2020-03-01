@@ -7,6 +7,7 @@ import {HeroPopup} from "./HeroPopup";
 interface IHeroCardProps {
   name: string;
   imgUrl: string;
+  props?: any;
 }
 
 const HeroContainer = styled.div`
@@ -90,7 +91,6 @@ export const HeroCard: React.FC<IHeroCardProps> = (props) => {
         <HeroNameText>{props.name}</HeroNameText>
       </HeroName>
 
-      <HeroPopup {...props}></HeroPopup>
     </HeroContainer>
   );
 };
