@@ -2,12 +2,22 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import {HeroPopup} from "./HeroPopup";
+import { HeroPopup } from "./HeroPopup";
 
 interface IHeroCardProps {
   name: string;
   imgUrl: string;
-  props?: any;
+  strength: number;
+  intelligence: number;
+  stamina: number;
+  healthpoints: number;
+  mana: number;
+  agility: number;
+  speed: number;
+  skills: [{ name: string; dame: number; element: string }];
+  resistance: string;
+  weakness: string;
+  description: string;
 }
 
 const HeroContainer = styled.div`
@@ -81,16 +91,17 @@ const HeroImage = styled.img`
   }
 `;
 
-export const HeroCard: React.FC<IHeroCardProps> = (props) => {
+export const HeroCard: React.FC<IHeroCardProps> = props => {
+  const [key, setKey] = React.useState(false);
   return (
-    <HeroContainer>
+    <HeroContainer onClick={()=>{setKey(true)}}>
       <HeroImageContainer>
         <HeroImage src={props.imgUrl} alt="hero"></HeroImage>
       </HeroImageContainer>
       <HeroName>
         <HeroNameText>{props.name}</HeroNameText>
       </HeroName>
-
+      {key ? <HeroPopup {...props}></HeroPopup> : ""}
     </HeroContainer>
   );
 };

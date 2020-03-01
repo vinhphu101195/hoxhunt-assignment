@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { SkillsBarContainer } from "./SkillBar";
+import { HeadingTwo, HeadingThree, Paragraph } from "../Typography/index";
 
 interface Props {
   name: string;
@@ -12,6 +13,10 @@ interface Props {
   mana: number;
   agility: number;
   speed: number;
+  skills: [{ name: string; dame: number; element: string }];
+  resistance: string;
+  weakness: string;
+  description: string;
 }
 
 const PopupContainer = styled.div`
@@ -50,7 +55,7 @@ const PopupContent = styled.div`
   transform: translate(-50%, -50%) scale(0.9);
   transition: all 0.4s 0.2s;
 
-  padding: 3rem;
+  padding: 3.5rem;
   display: flex;
   flex-direction: column;
   @media only screen and (max-width: $bp-small) {
@@ -61,8 +66,8 @@ const PopupContent = styled.div`
 const PopupClose = styled.div`
   color: black;
   position: absolute;
-  top: 2.5rem;
-  right: 10rem;
+  top: -2rem;
+  right: 0rem;
   font-size: 3rem;
   transition: all 0.2s;
   line-height: 1;
@@ -78,39 +83,78 @@ const PopupClose = styled.div`
 
 const PopupContentUpper = styled.div`
   width: 100%;
-  height: 65%;
+  height: 70%;
   display: flex;
   flex-direction: row;
+  position: relative;
 `;
 
 const PopupContentUpperSkillContainer = styled.div`
-  flex-grow: 1;
+  width: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-bottom: 3rem;
+  margin-top: 1.5rem;
 `;
 const PopupContentUpperAvatarContainer = styled.div`
+  width: 50%;
   flex-grow: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding-bottom: 3rem;
 `;
 
 const PopupHeroImage = styled.img`
-  width: 100%;
-  height: 50%;
+  width: 75%;
 `;
-const PopupContentLower = styled.div``;
+const PopupHeroSpecial = styled.p`
+  margin: 1rem auto;
+  font-size: 18px;
+  font-style: italic;
+`;
+const PopupHeroName = styled.div`
+  position: absolute;
+  right: 25%;
+  top: -3rem;
+`;
+const PopupContentLower = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const CustomTable = styled.table`
+  width: 100%;
+  font-size: 1.15rem;
+  &&& {
+    th,
+    td {
+      padding: 2px 3px;
+      text-align: left;
+      border-bottom: 1.5px solid #ddd;
+    }
+    table {
+      border-collapse: collapse;
+    }
+  }
+`;
 
 export const HeroPopup: React.FC<Props> = props => {
-  console.log(props);
-
   return (
     <PopupContainer>
       <PopupContent>
         <PopupContentUpper>
+          <PopupClose>&times;</PopupClose>
+
+          <PopupHeroName>
+            <HeadingTwo>{props.name}</HeadingTwo>
+          </PopupHeroName>
+          <PopupContentUpperAvatarContainer>
+            <PopupHeroImage src={props.imgUrl} alt="hero"></PopupHeroImage>
+            <PopupHeroSpecial>
+              Resistance: {props.resistance} | Weakness: {props.weakness}
+            </PopupHeroSpecial>
+          </PopupContentUpperAvatarContainer>
           <PopupContentUpperSkillContainer>
             <SkillsBarContainer
               title="Strength"
@@ -129,11 +173,6 @@ export const HeroPopup: React.FC<Props> = props => {
               index={props.healthpoints / 10}
             ></SkillsBarContainer>
           </PopupContentUpperSkillContainer>
-
-          <PopupContentUpperAvatarContainer>
-            <PopupHeroImage src={props.imgUrl} alt="hero"></PopupHeroImage>
-          </PopupContentUpperAvatarContainer>
-
           <PopupContentUpperSkillContainer>
             <SkillsBarContainer
               title="Mana"
@@ -147,15 +186,39 @@ export const HeroPopup: React.FC<Props> = props => {
               title="Speed"
               index={props.speed}
             ></SkillsBarContainer>
-            <SkillsBarContainer
-              title="Difficult"
-              index={20}
-            ></SkillsBarContainer>
           </PopupContentUpperSkillContainer>
         </PopupContentUpper>
-        <PopupContentLower>hello2</PopupContentLower>
+        <PopupContentLower>
+          <div style={{ width: "40%" }}>
+            <HeadingThree style={{ color: "#001147" }}>Ability</HeadingThree>
+            <CustomTable>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Dame</th>
+                  <th>Element</th>
+                </tr>
+              </thead>
+              <tbody>{showSkills(props.skills)}</tbody>
+            </CustomTable>
+          </div>
+          <div style={{ width: "60%", padding: "2rem" }}>
+            <Paragraph>{props.description}</Paragraph>
+          </div>
+        </PopupContentLower>
       </PopupContent>
-      <PopupClose>&times;</PopupClose>
     </PopupContainer>
   );
+};
+
+const showSkills = skills => {
+  return skills.map((skill, index) => {
+    return (
+      <tr key={index}>
+        <td>{skill.name}</td>
+        <td>{skill.damage}</td>
+        <td>{skill.element}</td>
+      </tr>
+    );
+  });
 };

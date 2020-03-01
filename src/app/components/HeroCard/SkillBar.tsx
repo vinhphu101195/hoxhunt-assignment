@@ -42,10 +42,13 @@ const SkillsBarFill = styled.div<SkillType>`
 `;
 
 const SkillTitle = styled.p`
-  font-size: 1.5rem;
   font-style: italic;
   margin-bottom: 5px;
   color: #001147;
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 25px;
 `;
 
 export const SkillsBarContainer: React.FC<Props> = props => {
