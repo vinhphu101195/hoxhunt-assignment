@@ -23,6 +23,7 @@ const SkillsBar = styled.div`
   display: inline-block;
 `;
 
+// typescript doesn't support 
 const SkillAnimation = keyframes`
   0% {
     width: 0px;
