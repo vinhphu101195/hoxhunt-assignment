@@ -22,6 +22,10 @@ interface IHeroCardProps {
 
 const HeroContainer = styled.div`
   position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const HeroName = styled.span`
@@ -33,9 +37,6 @@ const HeroName = styled.span`
   margin-top: -10px;
   transition: background-color 0.5s;
 
-  &:hover {
-    cursor: pointer;
-  }
   ${HeroContainer}:hover & {
     background-color: #113fd1;
   }
