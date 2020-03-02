@@ -1,6 +1,6 @@
 // It is your job to implement this. More info in README
 
-import * as React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { HeroPopup } from "./HeroPopup";
 
@@ -22,10 +22,6 @@ interface IHeroCardProps {
 
 const HeroContainer = styled.div`
   position: relative;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const HeroName = styled.span`
@@ -37,6 +33,9 @@ const HeroName = styled.span`
   margin-top: -10px;
   transition: background-color 0.5s;
 
+  &:hover {
+    cursor: pointer;
+  }
   ${HeroContainer}:hover & {
     background-color: #113fd1;
   }
@@ -92,16 +91,30 @@ const HeroImage = styled.img`
 `;
 
 export const HeroCard: React.FC<IHeroCardProps> = props => {
-  const [key, setKey] = React.useState(false);
+  const [key, setKey] = useState<boolean>(false);
+
+  const onSetKey = (e: React.FormEvent<HTMLDivElement>): void => {
+    e.preventDefault();
+    e.stopPropagation();
+    setKey(false);
+    console.log("vo roi");
+  };
+  console.log(key);
+
   return (
-    <HeroContainer onClick={()=>{setKey(true)}}>
+    <HeroContainer
+      onClick={() => {
+        console.log("hello");
+        setKey(true);
+      }}
+    >
       <HeroImageContainer>
         <HeroImage src={props.imgUrl} alt="hero"></HeroImage>
       </HeroImageContainer>
       <HeroName>
         <HeroNameText>{props.name}</HeroNameText>
       </HeroName>
-      {key ? <HeroPopup {...props}></HeroPopup> : ""}
+      {key ? <HeroPopup {...props} onSetKey={onSetKey}></HeroPopup> : ""}
     </HeroContainer>
   );
 };

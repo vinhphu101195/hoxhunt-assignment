@@ -17,6 +17,7 @@ interface Props {
   resistance: string;
   weakness: string;
   description: string;
+  onSetKey: (e: React.FormEvent<HTMLDivElement>) => void;
 }
 
 const PopupContainer = styled.div`
@@ -30,7 +31,7 @@ const PopupContainer = styled.div`
   z-index: 9999;
   opacity: 1;
   visibility: visible;
-  transition: all 0.3s;
+  transition: all 0.5s;
 
   @supports (-webkit-backdrop-filter: blur(10px)) or
     (backdrop-filter: blur(10px)) {
@@ -58,9 +59,6 @@ const PopupContent = styled.div`
   padding: 3.5rem;
   display: flex;
   flex-direction: column;
-  @media only screen and (max-width: $bp-small) {
-    justify-content: center;
-  }
 `;
 
 const PopupClose = styled.div`
@@ -78,6 +76,7 @@ const PopupClose = styled.div`
   &:hover{
     color:#B22222	
     transform: scale(1.3);
+    cursor:pointer;
   }
 `;
 
@@ -144,8 +143,7 @@ export const HeroPopup: React.FC<Props> = props => {
     <PopupContainer>
       <PopupContent>
         <PopupContentUpper>
-          <PopupClose>&times;</PopupClose>
-
+          <PopupClose onClick={props.onSetKey}>&times;</PopupClose>
           <PopupHeroName>
             <HeadingTwo>{props.name}</HeadingTwo>
           </PopupHeroName>
