@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDom from "react-dom";
 import styled, { keyframes } from "styled-components";
 import { SkillsBarContainer } from "./SkillBar";
 import { HeadingTwo, HeadingThree, Paragraph } from "../Typography/index";
@@ -136,7 +137,7 @@ const CustomTable = styled.table`
 `;
 
 export const HeroPopup: React.FC<Props> = props => {
-  return (
+  return ReactDom.createPortal(
     <PopupContainer>
       <PopupContent>
         <PopupContentUpper>
@@ -204,7 +205,8 @@ export const HeroPopup: React.FC<Props> = props => {
           </Paragraph>
         </PopupContentLower>
       </PopupContent>
-    </PopupContainer>
+    </PopupContainer>,
+    document.getElementById("modal-root")
   );
 };
 
