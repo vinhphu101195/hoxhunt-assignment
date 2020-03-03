@@ -18,10 +18,6 @@ const PopupContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
 
   z-index: 9999;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.5s;
-
   @supports (-webkit-backdrop-filter: blur(10px)) or
     (backdrop-filter: blur(10px)) {
     -webkit-backdrop-filter: blur(10px);
@@ -42,14 +38,13 @@ const PopupContent = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
   background-color: #fff;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   display: table;
   overflow: hidden;
-  opacity: 1;
   animation: ${PopupAnimation} 2s ease-out;
   transform: translate(-50%, -50%) scale(0.9);
   transition: all 0.4s 0.2s;
@@ -82,7 +77,6 @@ const PopupContentUpper = styled.div`
   width: 100%;
   height: 70%;
   display: flex;
-  flex-direction: row;
   position: relative;
 `;
 
