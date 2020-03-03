@@ -15,31 +15,32 @@ const FlexContain = styled.div`
   flex-direction: column;
 `;
 
-const SkillsBar = styled.div`
-  width: 70%
+const SkillsBar = styled.div<SkillType>`
+  max-width: 75%;
+  min-width: 1%
+  width: ${props => props.skillSize}%;
   height: 2vh;
   background-color: #cfcfcf;
   border-radius: 3.125rem;
   display: inline-block;
 `;
 
-// typescript doesn't support 
 const SkillAnimation = keyframes`
   0% {
     width: 0px;
   }
   100% {
-    width: ${props => props.skillSize}%;
+    width: 100%;
   }
 `;
 
 const SkillsBarFill = styled.div<SkillType>`
   height: 100%;
-  width: ${props => props.skillSize}%;
+  width: 100%;
   border-radius: 3.125rem;
   background-color: #001147;
 
-  animation: ${SkillAnimation} 2.5s ease-out;
+  animation: ${SkillAnimation} 2.8s ease-out;
 `;
 
 const SkillTitle = styled.p`
@@ -56,8 +57,8 @@ export const SkillsBarContainer: React.FC<Props> = props => {
   return (
     <FlexContain>
       <SkillTitle>{props.title}</SkillTitle>
-      <SkillsBar>
-        <SkillsBarFill skillSize={props.index}></SkillsBarFill>
+      <SkillsBar skillSize={props.index}>
+        <SkillsBarFill></SkillsBarFill>
       </SkillsBar>
     </FlexContain>
   );

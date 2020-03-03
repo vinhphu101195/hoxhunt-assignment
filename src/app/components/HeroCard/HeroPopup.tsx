@@ -199,9 +199,9 @@ export const HeroPopup: React.FC<Props> = props => {
               </tbody>
             </CustomTable>
           </div>
-          <div style={{ width: "60%", padding: "2rem" }}>
-            <Paragraph>{props.description}</Paragraph>
-          </div>
+          <Paragraph style={{ width: "60%", padding: "2rem" }}>
+            {props.description}
+          </Paragraph>
         </PopupContentLower>
       </PopupContent>
     </PopupContainer>
