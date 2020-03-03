@@ -17,7 +17,7 @@ const FlexContain = styled.div`
 
 const SkillsBar = styled.div`
   width: 70%
-  height: 8px;
+  height: 2vh;
   background-color: #cfcfcf;
   border-radius: 3.125rem;
   display: inline-block;

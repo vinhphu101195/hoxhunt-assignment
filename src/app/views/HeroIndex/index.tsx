@@ -50,8 +50,7 @@ interface IHero {
   skills: [{ name: string; dame: number; element: string }];
   resistance: string;
   weakness: string;
-  description:string;
-
+  description: string;
 }
 
 const HeroCardContainer = styled.div`
@@ -103,12 +102,14 @@ export const HeroIndex: React.FC<IHeroIndexProps> = () => {
 
       {/** Improve this section. Data provided is defined on top in GraphQL query. You can decide what you use and what you dont't.*/}
       <HeroCardContainer>
-        {heroes.map(hero => (
-          <HeroCard key={hero.name} {...hero} />
-        ))}
+        <ShowHeroes heroes={heroes}></ShowHeroes>
       </HeroCardContainer>
 
       <Footer />
     </main>
   );
+};
+
+const ShowHeroes = props => {
+  return props.heroes.map(hero => <HeroCard key={hero.name} {...hero} />);
 };

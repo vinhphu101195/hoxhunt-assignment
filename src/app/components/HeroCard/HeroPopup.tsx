@@ -2,21 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { SkillsBarContainer } from "./SkillBar";
 import { HeadingTwo, HeadingThree, Paragraph } from "../Typography/index";
+import { HeroInfor } from "./file";
 
-interface Props {
-  name: string;
-  imgUrl: string;
-  strength: number;
-  intelligence: number;
-  stamina: number;
-  healthpoints: number;
-  mana: number;
-  agility: number;
-  speed: number;
-  skills: [{ name: string; dame: number; element: string }];
-  resistance: string;
-  weakness: string;
-  description: string;
+interface Props extends HeroInfor {
   onSetKey: (e: React.FormEvent<HTMLDivElement>) => void;
 }
 
@@ -197,7 +185,9 @@ export const HeroPopup: React.FC<Props> = props => {
                   <th>Element</th>
                 </tr>
               </thead>
-              <tbody>{showSkills(props.skills)}</tbody>
+              <tbody>
+                <ShowSkills skills={props.skills}></ShowSkills>
+              </tbody>
             </CustomTable>
           </div>
           <div style={{ width: "60%", padding: "2rem" }}>
@@ -209,8 +199,8 @@ export const HeroPopup: React.FC<Props> = props => {
   );
 };
 
-const showSkills = skills => {
-  return skills.map((skill, index) => {
+const ShowSkills = props => {
+  return props.skills.map((skill, index) => {
     return (
       <tr key={index}>
         <td>{skill.name}</td>

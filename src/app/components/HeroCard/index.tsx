@@ -3,22 +3,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { HeroPopup } from "./HeroPopup";
-
-interface IHeroCardProps {
-  name: string;
-  imgUrl: string;
-  strength: number;
-  intelligence: number;
-  stamina: number;
-  healthpoints: number;
-  mana: number;
-  agility: number;
-  speed: number;
-  skills: [{ name: string; dame: number; element: string }];
-  resistance: string;
-  weakness: string;
-  description: string;
-}
+import { HeroInfor } from "./file";
 
 const HeroContainer = styled.div`
   position: relative;
@@ -91,21 +76,16 @@ const HeroImage = styled.img`
   }
 `;
 
-export const HeroCard: React.FC<IHeroCardProps> = props => {
+export const HeroCard: React.FC<HeroInfor> = props => {
   const [key, setKey] = useState<boolean>(false);
-
   const onSetKey = (e: React.FormEvent<HTMLDivElement>): void => {
     e.preventDefault();
     e.stopPropagation();
     setKey(false);
-    console.log("vo roi");
   };
-  console.log(key);
-
   return (
     <HeroContainer
       onClick={() => {
-        console.log("hello");
         setKey(true);
       }}
     >
