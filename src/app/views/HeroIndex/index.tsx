@@ -62,6 +62,9 @@ const HeroCardContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
+  @media (max-width: 1000px) {
+    flex-direction:column;
+  }
 `;
 
 const handleLoading = () => <div>Loading...</div>;

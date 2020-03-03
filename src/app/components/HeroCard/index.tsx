@@ -7,9 +7,13 @@ import { HeroInfor } from "./file";
 
 const HeroContainer = styled.div`
   position: relative;
-
+  width: fit-content;
   &:hover {
     cursor: pointer;
+  }
+  @media (max-width: 1000px) {
+    margin:0 auto;
+    margin-bottom: 2rem;
   }
 `;
 
