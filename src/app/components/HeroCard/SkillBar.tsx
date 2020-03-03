@@ -39,7 +39,7 @@ const SkillsBarFill = styled.div<SkillType>`
   border-radius: 3.125rem;
   background-color: #001147;
 
-  animation: ${SkillAnimation} 3s ease-out;
+  animation: ${SkillAnimation} 2.5s ease-out;
 `;
 
 const SkillTitle = styled.p`

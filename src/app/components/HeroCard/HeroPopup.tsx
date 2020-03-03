@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { SkillsBarContainer } from "./SkillBar";
 import { HeadingTwo, HeadingThree, Paragraph } from "../Typography/index";
 import { HeroInfor } from "./file";
@@ -28,6 +28,14 @@ const PopupContainer = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
   }
 `;
+const PopupAnimation = keyframes`
+  0% {
+    transform: translate(-50%, -50%) scale(0.25);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+`;
 
 const PopupContent = styled.div`
   position: absolute;
@@ -41,6 +49,7 @@ const PopupContent = styled.div`
   display: table;
   overflow: hidden;
   opacity: 1;
+  animation: ${PopupAnimation} 2s ease-out;
   transform: translate(-50%, -50%) scale(0.9);
   transition: all 0.4s 0.2s;
 
