@@ -23,6 +23,17 @@ const PopupContainer = styled.div`
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.3);
   }
+
+  font-size: 95%;
+  @media (max-width: 1000px) {
+    font-size: 75%;
+  }
+  @media (max-width: 800px) {
+    font-size: 55%;
+  }
+  @media (max-width: 500px) {
+    font-size: 35%;
+  }
 `;
 const PopupAnimation = keyframes`
   0% {
@@ -40,15 +51,14 @@ const PopupContent = styled.div`
   width: 85%;
   height: 85%;
   background-color: #fff;
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2em 4em rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  display: table;
   overflow: hidden;
   animation: ${PopupAnimation} 2s ease-out;
   transform: translate(-50%, -50%) scale(0.9);
   transition: all 0.4s 0.2s;
 
-  padding: 3.5rem;
+  padding: 3.5em;
   display: flex;
   flex-direction: column;
 `;
@@ -57,13 +67,12 @@ const PopupClose = styled.div`
   color: black;
   position: absolute;
   top: -2rem;
-  right: 0rem;
-  font-size: 3rem;
-  transition: all 0.2s;
+  right: 0;
+  font-size: 3em;
   line-height: 1;
   z-index: 2;
   font-weight: bolder;
-  transition: all 0.3s ;
+  transition: all 0.3s;
 
   &:hover{
     color:#B22222	
@@ -87,9 +96,8 @@ const PopupContentUpperSkillContainer = styled.div`
   width: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-bottom: 3rem;
-  margin-top: 1.5rem;
+  padding-bottom: 3em;
+  margin-top: 1.5em;
 
   @media (max-width: 800px) {
     display: none;
@@ -99,11 +107,17 @@ const PopupContentUpperAvatarContainer = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  padding-bottom: 3rem;
+  padding-bottom: 3em;
   @media (max-width: 800px) {
-    width: 80%;
+    width: 60%;
     padding-bottom: 0;
-    margin-top: 2rem;
+    margin: 0 auto;
+    margin-top: 4em;
+  }
+  @media (max-width: 500px) {
+    width:100%
+    margin:auto;
+    margin-top: 6em;
   }
 `;
 
@@ -114,14 +128,14 @@ const PopupHeroImage = styled.img`
   }
 `;
 const PopupHeroSpecial = styled.p`
-  margin: 1rem auto;
+  margin: 1em auto;
   font-size: 18px;
   font-style: italic;
 `;
 const PopupHeroName = styled.div`
   position: absolute;
   right: 25%;
-  top: -3rem;
+  top: -3em;
   @media (max-width: 800px) {
     right: 42%;
   }
@@ -143,22 +157,22 @@ const PopupHeroInfor = styled.div`
 
 const PopupHeroStory = styled(Paragraph)`
   width: 60%;
-  padding: 2rem;
+  padding: 2em;
   margin: auto;
   @media (max-width: 1000px) {
     width: 100%;
     padding: 0;
-    margin-top: 2rem;
-    font-size: 0.75rem;
+    margin-top: 2em;
+    font-size: 0.75em;
   }
   @media (max-width: 700px) {
-    font-size: 0.45rem;
+    font-size: 0.45em;
   }
 `;
 
 const CustomTable = styled.table`
   width: 100%;
-  font-size: 1.15rem;
+  font-size: 1.15em;
   &&& {
     th,
     td {

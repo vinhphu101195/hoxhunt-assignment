@@ -19,7 +19,7 @@ export const HeadingOne = styled.h1`
 
 export const HeadingTwo = styled.h2`
   ${headingDefaults}
-  font-size: 32px;
+  font-size: 2em;
   line-height: 39px;
   letter-spacing: 1.15px;
 `;
