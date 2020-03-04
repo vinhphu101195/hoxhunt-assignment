@@ -78,6 +78,10 @@ const PopupContentUpper = styled.div`
   height: 70%;
   display: flex;
   position: relative;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 const PopupContentUpperSkillContainer = styled.div`
@@ -87,16 +91,31 @@ const PopupContentUpperSkillContainer = styled.div`
   justify-content: flex-start;
   padding-bottom: 3rem;
   margin-top: 1.5rem;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    padding-bottom: 0rem;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 const PopupContentUpperAvatarContainer = styled.div`
   width: 50%;
-  flex-grow: 2;
   display: flex;
   flex-direction: column;
   padding-bottom: 3rem;
+  @media (max-width: 1200px) {
+    width: 100%;
+    padding-bottom: 0;
+    margin-top: 5rem;
+  }
 `;
 
 const PopupHeroImage = styled.img`
+  margin: 0 auto;
   width: 75%;
 `;
 const PopupHeroSpecial = styled.p`
@@ -108,10 +127,34 @@ const PopupHeroName = styled.div`
   position: absolute;
   right: 25%;
   top: -3rem;
+  @media (max-width: 1200px) {
+    right: 42%;
+  }
 `;
 const PopupContentLower = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+`;
+
+const PopupHeroInfor = styled.div`
+  width: 40%;
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`;
+
+const PopupHeroStory = styled.div`
+  ${Paragraph}
+  width: 60%;
+  padding: 2rem;
+  @media (max-width: 1200px) {
+    width: 100%;
+    padding: 0;
+    margin-top: 2rem;
+  }
 `;
 
 const CustomTable = styled.table`
@@ -159,8 +202,8 @@ export const HeroPopup: React.FC<Props> = props => {
               index={props.stamina}
             ></SkillsBarContainer>
             <SkillsBarContainer
-              title="Healthpoints"
-              index={props.healthpoints / 10}
+              title="Speed"
+              index={props.speed}
             ></SkillsBarContainer>
           </PopupContentUpperSkillContainer>
           <PopupContentUpperSkillContainer>
@@ -173,13 +216,13 @@ export const HeroPopup: React.FC<Props> = props => {
               index={props.agility}
             ></SkillsBarContainer>
             <SkillsBarContainer
-              title="Speed"
-              index={props.speed}
+              title="Healthpoints"
+              index={props.healthpoints / 10}
             ></SkillsBarContainer>
           </PopupContentUpperSkillContainer>
         </PopupContentUpper>
         <PopupContentLower>
-          <div style={{ width: "40%" }}>
+          <PopupHeroInfor>
             <HeadingThree style={{ color: "#001147" }}>Ability</HeadingThree>
             <CustomTable>
               <thead>
@@ -193,10 +236,8 @@ export const HeroPopup: React.FC<Props> = props => {
                 <ShowSkills skills={props.skills}></ShowSkills>
               </tbody>
             </CustomTable>
-          </div>
-          <Paragraph style={{ width: "60%", padding: "2rem" }}>
-            {props.description}
-          </Paragraph>
+          </PopupHeroInfor>
+          <PopupHeroStory>{props.description}</PopupHeroStory>
         </PopupContentLower>
       </PopupContent>
     </PopupContainer>,

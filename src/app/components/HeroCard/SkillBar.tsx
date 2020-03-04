@@ -13,6 +13,9 @@ interface SkillType {
 const FlexContain = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 1000px) {
+    width: inherit;
+  }
 `;
 
 const SkillsBar = styled.div<SkillType>`
