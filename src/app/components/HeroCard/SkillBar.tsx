@@ -13,9 +13,6 @@ interface SkillType {
 const FlexContain = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 1000px) {
-    width: inherit;
-  }
 `;
 
 const SkillsBar = styled.div<SkillType>`
@@ -24,7 +21,7 @@ const SkillsBar = styled.div<SkillType>`
   width: ${props => props.skillSize}%;
   height: 2vh;
   background-color: #cfcfcf;
-  border-radius: 3.125rem;
+  border-radius: 3.125em;
   display: inline-block;
 `;
 
@@ -40,7 +37,7 @@ const SkillAnimation = keyframes`
 const SkillsBarFill = styled.div<SkillType>`
   height: 100%;
   width: 100%;
-  border-radius: 3.125rem;
+  border-radius: 3.125em;
   background-color: #001147;
 
   animation: ${SkillAnimation} 2.8s ease-out;
@@ -52,7 +49,7 @@ const SkillTitle = styled.p`
   color: #001147;
   font-family: "Montserrat";
   font-weight: 300;
-  font-size: 22px;
+  font-size: 1.5em;
   line-height: 25px;
 `;
 

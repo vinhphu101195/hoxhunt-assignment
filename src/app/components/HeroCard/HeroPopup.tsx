@@ -16,7 +16,6 @@ const PopupContainer = styled.div`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-
   z-index: 9999;
   @supports (-webkit-backdrop-filter: blur(10px)) or
     (backdrop-filter: blur(10px)) {
@@ -79,7 +78,7 @@ const PopupContentUpper = styled.div`
   display: flex;
   position: relative;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 800px) {
     flex-direction: column;
   }
 `;
@@ -92,13 +91,7 @@ const PopupContentUpperSkillContainer = styled.div`
   padding-bottom: 3rem;
   margin-top: 1.5rem;
 
-  @media (max-width: 1200px) {
-    width: 100%;
-    padding-bottom: 0rem;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     display: none;
   }
 `;
@@ -107,16 +100,18 @@ const PopupContentUpperAvatarContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 3rem;
-  @media (max-width: 1200px) {
-    width: 100%;
+  @media (max-width: 800px) {
+    width: 80%;
     padding-bottom: 0;
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
 `;
 
 const PopupHeroImage = styled.img`
-  margin: 0 auto;
   width: 75%;
+  @media (max-width: 800px) {
+    margin: 0 auto;
+  }
 `;
 const PopupHeroSpecial = styled.p`
   margin: 1rem auto;
@@ -127,33 +122,37 @@ const PopupHeroName = styled.div`
   position: absolute;
   right: 25%;
   top: -3rem;
-  @media (max-width: 1200px) {
+  @media (max-width: 800px) {
     right: 42%;
   }
 `;
 const PopupContentLower = styled.div`
   display: flex;
   justify-content: space-between;
-  @media (max-width: 1200px) {
+  @media (max-width: 800px) {
     flex-direction: column;
   }
 `;
 
 const PopupHeroInfor = styled.div`
   width: 40%;
-  @media (max-width: 1200px) {
+  @media (max-width: 1000px) {
     width: 100%;
   }
 `;
 
-const PopupHeroStory = styled.div`
-  ${Paragraph}
+const PopupHeroStory = styled(Paragraph)`
   width: 60%;
   padding: 2rem;
-  @media (max-width: 1200px) {
+  margin: auto;
+  @media (max-width: 1000px) {
     width: 100%;
     padding: 0;
     margin-top: 2rem;
+    font-size: 0.75rem;
+  }
+  @media (max-width: 700px) {
+    font-size: 0.45rem;
   }
 `;
 
