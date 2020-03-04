@@ -1,9 +1,10 @@
 // It is your job to implement this. More info in README
 
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { HeroPopup } from "./HeroPopup";
 import { HeroInfor } from "./file";
+import { usePopup } from "../popupProvider/index";
 
 const HeroContainer = styled.div`
   position: relative;
@@ -12,7 +13,7 @@ const HeroContainer = styled.div`
     cursor: pointer;
   }
   @media (max-width: 1000px) {
-    margin:0 auto;
+    margin: 0 auto;
     margin-bottom: 2rem;
   }
 `;
@@ -81,16 +82,12 @@ const HeroImage = styled.img`
 `;
 
 export const HeroCard: React.FC<HeroInfor> = props => {
-  const [key, setKey] = useState<boolean>(false);
-  const onSetKey = (e: React.FormEvent<HTMLDivElement>): void => {
-    e.preventDefault();
-    e.stopPropagation();
-    setKey(false);
-  };
+  const { openPopup } = usePopup();
+
   return (
     <HeroContainer
       onClick={() => {
-        setKey(true);
+        openPopup(<HeroPopup {...props}></HeroPopup>);
       }}
     >
       <HeroImageContainer>
@@ -99,7 +96,7 @@ export const HeroCard: React.FC<HeroInfor> = props => {
       <HeroName>
         <HeroNameText>{props.name}</HeroNameText>
       </HeroName>
-      {key ? <HeroPopup {...props} onSetKey={onSetKey}></HeroPopup> : ""}
+      {/* {key ? <HeroPopup {...props} onSetKey={onSetKey}></HeroPopup> : ""} */}
     </HeroContainer>
   );
 };
