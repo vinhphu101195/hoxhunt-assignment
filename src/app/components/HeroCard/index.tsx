@@ -7,6 +7,7 @@ import { HeroInfor } from "./file";
 import { usePopup } from "../popupProvider/index";
 
 const HeroContainer = styled.div`
+  margin-left: 3rem;
   position: relative;
   width: fit-content;
   &:hover {
