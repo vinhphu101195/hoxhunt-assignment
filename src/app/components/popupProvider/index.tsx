@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import { createPortal } from "react-dom";
+import usePortal from "./portal";
 
 const PopupContainer = styled.div`
   height: 100vh;
@@ -65,7 +67,7 @@ export const PopupContext = createContext<{
 
 export default function PopupProvider(props) {
   const [node, setNode] = useState<React.ReactNode>(null);
-
+  const target = usePortal("modal-root");
   const closePopup = (): void => {
     setNode(null);
   };
@@ -76,11 +78,14 @@ export default function PopupProvider(props) {
 
   return (
     <PopupContext.Provider value={{ openPopup, closePopup }}>
-      {node !== null ? (
-        <PopupContainer>
-          <PopupContent>{node}</PopupContent>
-        </PopupContainer>
-      ) : null}
+      {node !== null
+        ? createPortal(
+            <PopupContainer>
+              <PopupContent>{node}</PopupContent>
+            </PopupContainer>,
+            target
+          )
+        : null}
       {props.children}
     </PopupContext.Provider>
   );
