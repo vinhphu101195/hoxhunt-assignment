@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { SkillsBarContainer } from "./SkillBar";
 import { HeadingTwo, HeadingThree, Paragraph } from "../Typography/index";
 import { HeroInfor } from "./file";
