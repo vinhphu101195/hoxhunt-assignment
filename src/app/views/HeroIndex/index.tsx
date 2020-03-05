@@ -63,7 +63,7 @@ const HeroCardContainer = styled.div`
     margin-right: auto;
   }
   @media (max-width: 1000px) {
-    flex-direction:column;
+    flex-direction: column;
   }
 `;
 
@@ -86,24 +86,12 @@ export const HeroIndex: React.FC<IHeroIndexProps> = () => {
     return handleLoading();
   }
 
-  console.log(heroes);
-
   return (
     <main>
       <TopBar />
       <Hero />
-      <Section
-        heading={"Hunter Index"}
-        paragraph={`
-          Professor Hoax gave us this Hunter Index -tool 
-          so we can see how our heroes manage against evildoers. 
-          Unfortunately he forgot to implement their HeroCards. 
-          It's your job to finish his work before we can continue
-          on our journey together!
-        `}
-      />
+      <Section heading={"Hunter Index"} paragraph={``} />
 
-      {/** Improve this section. Data provided is defined on top in GraphQL query. You can decide what you use and what you dont't.*/}
       <HeroCardContainer>
         <ShowHeroes heroes={heroes}></ShowHeroes>
       </HeroCardContainer>

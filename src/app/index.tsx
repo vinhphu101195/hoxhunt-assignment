@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { ApolloProvider } from "react-apollo-hooks";
 import ApolloClient from "apollo-boost";
 import { HeroIndex } from "./views/HeroIndex";
-import PopupContext from "./components/popupProvider/index";
+import PopupProvider from "./components/popupProvider/index";
 
 const graphqlClient = new ApolloClient({
   uri: "http://localhost:4000/"
@@ -12,9 +12,9 @@ const graphqlClient = new ApolloClient({
 const App: React.FC = () => {
   return (
     <ApolloProvider client={graphqlClient}>
-      <PopupContext>
+      <PopupProvider>
         <HeroIndex />
-      </PopupContext>
+      </PopupProvider>
     </ApolloProvider>
   );
 };

@@ -148,36 +148,18 @@ export const HeroPopup: React.FC<HeroInfor> = props => {
           </PopupHeroSpecial>
         </PopupContentUpperAvatarContainer>
         <PopupContentUpperSkillContainer>
-          <SkillsBarContainer
-            title="Strength"
-            index={props.strength}
-          ></SkillsBarContainer>
-          <SkillsBarContainer
-            title="Intelligence"
-            index={props.intelligence}
-          ></SkillsBarContainer>
-          <SkillsBarContainer
-            title="Stamina"
-            index={props.stamina}
-          ></SkillsBarContainer>
-          <SkillsBarContainer
-            title="Speed"
-            index={props.speed}
-          ></SkillsBarContainer>
+          <SkillsBarContainer title="Strength" index={props.strength} />
+          <SkillsBarContainer title="Intelligence" index={props.intelligence} />
+          <SkillsBarContainer title="Stamina" index={props.stamina} />
+          <SkillsBarContainer title="Speed" index={props.speed} />
         </PopupContentUpperSkillContainer>
         <PopupContentUpperSkillContainer>
-          <SkillsBarContainer
-            title="Mana"
-            index={props.mana / 200}
-          ></SkillsBarContainer>
-          <SkillsBarContainer
-            title="Agility"
-            index={props.agility}
-          ></SkillsBarContainer>
+          <SkillsBarContainer title="Mana" index={props.mana / 200} />
+          <SkillsBarContainer title="Agility" index={props.agility} />
           <SkillsBarContainer
             title="Healthpoints"
             index={props.healthpoints / 10}
-          ></SkillsBarContainer>
+          />
         </PopupContentUpperSkillContainer>
       </PopupContentUpper>
       <PopupContentLower>

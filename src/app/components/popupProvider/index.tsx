@@ -48,10 +48,9 @@ const PopupContent = styled.div`
   box-shadow: 0 2em 4em rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   overflow: hidden;
-  animation: ${PopupAnimation} 2s ease-out;
+  animation: ${PopupAnimation} 250ms ease-in-out forwards;
   transform: translate(-50%, -50%) scale(0.9);
   transition: all 0.4s 0.2s;
-
   padding: 3.5em;
   display: flex;
   flex-direction: column;
