@@ -97,7 +97,6 @@ export const HeroCard: React.FC<HeroInfor> = props => {
       <HeroName>
         <HeroNameText>{props.name}</HeroNameText>
       </HeroName>
-      {/* {key ? <HeroPopup {...props} onSetKey={onSetKey}></HeroPopup> : ""} */}
     </HeroContainer>
   );
 };
